@@ -1,0 +1,36 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block scripts %}
+<script src="#" defer></script>
+{% endblock scripts %}
+
+
+{% block title %}Post details{% endblock title %}
+{% block content %}
+
+<div class="container">
+    <h2 class="display-5">Post detail </h2>
+    <hr>
+
+    <h1>{{ post.title}}</h1>
+
+    <p>{{post.content}}</p>
+
+    <p><small>Created: {{post.created_at}}</small></p>
+
+    <a href="{% url 'post_update' post.id %}">Edit</a>|
+    <a href="{% url 'post_list' post.id %}">Back to list</a>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock content %}
