@@ -1,0 +1,88 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Log In{% endblock title %}
+{% block content %}
+
+<style>
+
+    h2 {
+        font-family: 'Clicker Script';
+        font-size: 2.2rem;
+    }
+    form {
+        font-family: 'Trocchi';
+        font-size: 1.1rem;
+    }
+</style>
+
+
+<div class="row shadow p-4 mb-5 bg-white rounded" style="margin: auto;">
+    <div class="col-md-6 p-4">
+        
+        <h2>Log In</h2>
+            
+        <form method="post">
+        {% csrf_token %}
+        
+        {{form|crispy}}
+
+        <!-- <div class="col col-12 col-sm-12 col-md-12 col-lg-12">
+            {{form.login|as_crispy_field}}
+        </div>
+
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-12">
+
+            {{form.password|as_crispy_field}}
+            
+        </div>
+
+         <div class="col col-12 col-sm-12 col-md-12 col-lg-12">
+
+            {{form.password|as_crispy_field}}
+            
+        </div>
+    
+    -->
+        <br>
+
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-12">
+            
+            
+        <!-- #F7BF48 -->
+
+        <button type="submit" class="btn" style="background-color: #F7BF48;" >Log In</button>
+        <!-- 
+                <button type="submit" class="btn btn-dark" style="background-color: #3D486C;" >Log In</button> -->
+                
+                <a href="{% url 'account_reset_password' %}" style="color: black;"  >Forgot Password ?</a>
+                
+
+        </div>
+        <br>
+
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-12">
+            
+            <a href="{% url 'account_signup' %}" style="color: #F7BF48;">Sign Up</a>
+
+
+        </div>
+
+        
+
+        </form>
+
+    </div>
+     <div class="col-md-6">
+
+
+        
+
+
+  
+
+  </div>
+  <script src="{%static 'js_login/my-loginlogin.js' %}"></script> 
+
+
+{% endblock content %}

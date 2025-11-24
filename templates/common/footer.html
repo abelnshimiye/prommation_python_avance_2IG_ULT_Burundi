@@ -1,0 +1,127 @@
+{% load static %}
+{% load i18n %}
+
+{% get_current_language as CURRENT_LANGUAGE %}
+{% get_available_languages as AVAILABLE_LANGUAGES %}
+{% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+
+
+
+
+
+
+{% comment %} <div class="container-fluid ">
+<nav class="navbar fixed-bottom navbar-expand navbar-dark bg-light bg-gradient">
+  
+    <a href="{% url 'pages:help'%}" class="nav-link px-2 text-black" style="color: black;"><i class="bi bi-info-circle-fill"></i>Help</a>
+  
+
+    <div class="languages">
+          <!-- <p>{% trans "Language" %}:</p> -->
+          <ul class="languages">
+            {% for language in languages %}
+              <li class="li">
+                <a  href="/{{ language.code }}/"
+                  {% if language.code == CURRENT_LANGUAGE %} class="activ"{% endif %}>
+                  {{ language.name_local }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+   
+
+      <ul class="navbar-nav ml-auto">
+      
+        
+        <li class="nav-item">
+          <a class="nav-link " style="color: black; font-size: 1.5em;" href="tel:+255743462868" target="_blank"><i class="bi bi-telephone" ></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" style="color: black; font-size: 1.5em;" href="https://instagram.com/atara.tz?utm_medium=copy_link" target="_blank"><i class="bi bi-instagram" ></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " style="color: black; font-size: 1.5em;" href="https://wa.me/message/VWTSFXQ5KM5DE1" target="_blank"><i class="bi bi-whatsapp" ></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " style="color: black; font-size: 1.5em;" href="https://www.facebook.com/atara.tanzania.7" target="_blank"><i class="bi bi-facebook" ></i></a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link " style="color: black; font-size: 1.5em;" href="https://twitter.com/tz_atara?s=21" target="_blank"><i class="bi bi-twitter" ></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " style="color: black; font-size: 1.5em;" href="mailto:ataratanzania@gmail.com" target="_blank"><i class="bi bi-envelope" ></i></a>
+        </li>
+       
+      </ul>
+   
+  
+    <!-- </div> -->
+  </nav>
+
+</div> {% endcomment %}
+
+
+
+<div class="container-fluid fixed-bottom bg-light bg-gradient">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top ">
+
+  <div class="col-md-4 d-flex align-items-center">
+
+          <ul class="nav nav-pills">
+          <li class="nav-item">
+                <a href="{% url 'pages:help'%}" class="nav-link {% if request.resolver_match.url_name == 'help' %}active{% endif %}" ><i class="bi bi-info-circle-fill"></i>Help</a>
+              </li>
+              &nbsp;
+            {% for language in languages %}
+              <li class="nav-item">
+                <a class="nav-link {% if language.code == CURRENT_LANGUAGE %} active{% endif %}" href="/{{ language.code }}/">
+                  {{ language.name_local }} 
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        
+    </div>
+
+
+    
+    <div class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+      <span class="mb-3 mb-md-0 text-body-secondary">&copy; 2023 Website NAme, Inc</span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="nav-item">
+          <a class="nav-link " style="color: black; font-size: 1.5em;" href="#" target="_blank"><i class="bi bi-telephone" ></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" style="color: black; font-size: 1.5em;" href="#" target="_blank"><i class="bi bi-instagram" ></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " style="color: black; font-size: 1.5em;" href="#" target="_blank"><i class="bi bi-whatsapp" ></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " style="color: black; font-size: 1.5em;" href="#" target="_blank"><i class="bi bi-facebook" ></i></a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link " style="color: black; font-size: 1.5em;" href="#" target="_blank"><i class="bi bi-twitter" ></i></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " style="color: black; font-size: 1.5em;" href="mailto:info@website.com" target="_blank"><i class="bi bi-envelope" ></i></a>
+        </li>
+    
+    </ul>
+  </footer>
+</div>

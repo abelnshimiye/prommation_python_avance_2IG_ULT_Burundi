@@ -1,0 +1,113 @@
+{% load static %}
+
+
+
+
+
+
+
+  {% comment %} <header class="container-fluid bg-light bg-gradient">
+
+  
+
+  <nav class="container d-flex flex-wrap justify-content-between align-items-center  border-top">
+
+ <div class="col-md-4 d-flex align-items-center">
+    <a class="navbar-brand" href="{% url 'pages:home' %}">
+      <img src="{% static 'images/logojenimu11.png' %}" width="100" height="50" class="d-inline-block align-top" alt="">
+    
+    </a>
+  </div> {% endcomment %}
+
+
+    {% comment %} <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> {% endcomment %}
+  
+    {% comment %} <div class="collapse navbar-collapse" id="navbarSupportedContent"> {% endcomment %}
+      {% comment %} <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}"><a href="{% url 'pages:home'%}" class="nav-link px-2 text-black" >Home</a></li>
+        <li class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}"><a href="{% url 'pages:about'%}" class="nav-link px-2 text-black" >About</a></li>
+        <li class="{% if request.resolver_match.url_name == 'services' %}active{% endif %}"><a class="nav-link px-2 text-black" href="{% url 'pages:services'%}">services</a></li>
+        <li class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}"><a class="nav-link px-2 text-black" href="{% url 'pages:contact'%}">contact</a></li>
+         
+      </ul> {% endcomment %}
+     
+
+    {% comment %} </div> {% endcomment %}
+
+{% comment %} 
+  </nav>
+    
+    <hr>
+  </header> {% endcomment %}
+
+
+
+
+
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        {% comment %} <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> {% endcomment %}
+        <img src="{% static 'images/logojenimu11.png' %}" width="100" height="50" class="d-inline-block align-top" alt="">
+    
+        <span class="fs-4">&nbsp; Your WEBSITE NAME</span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="{% url 'pages:home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="{% url 'pages:about'%}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a></li>
+        <li class="nav-item"><a href="{% url 'pages:services'%}" class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %}">Services</a></li>
+        <li class="nav-item"><a href="{% url 'pages:contact'%}" class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %} ">Contact</a></li>
+        {% comment %} <li class="nav-item"><a href="#" class="nav-link">About</a></li> {% endcomment %}
+
+
+
+
+         {% if user.is_authenticated %}
+        
+        <li class="nav-item dropdown">
+
+          
+        
+
+        </li>
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link dropdown-toggle tit" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <!-- Profile -->
+            {{user.username }}
+            <a class="dropdown-item " href="{% url 'account_logout' %}">Log Out</a>
+          </a>
+          <div class="dropdown-menu goodmenu" aria-labelledby="navbarDropdown">
+            
+            <a class="dropdown-item" href="{% url 'account_change_password' %}">Change your password</a>
+            <a class="dropdown-item " href="{% url 'account_logout' %}">Log Out</a>
+            <!-- <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a> -->
+          </div>
+          
+          
+        
+        </li>
+        
+        <!-- <li><button type="button" class="btn btn-dark p-2 text-white" data-toggle="modal" data-target=".bd-example-modal-sm">Log Out</button></li>
+         -->
+        {% else %}
+        <li><a class="btn btn-outline-black" href="{% url 'account_login' %}">Log In</a></li>
+        <li>
+          <a class="btn  " href="{% url 'account_signup' %}" style="background-color: #F7BF48;">Sign Up</a>
+        </li>
+
+        {% endif %}
+
+
+
+
+
+
+      </ul>
+    </header>
+  </div>
